@@ -1,6 +1,8 @@
 FROM ubuntu
 MAINTAINER euclid1990
 
+ENV SSH_AUTHORIZED_KEYS ""
+
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     apt-utils \
     net-tools \
@@ -16,9 +18,10 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 RUN mkdir ~/.ssh/ && touch ~/.ssh/authorized_keys
 
-ENV SSH_AUTHORIZED_KEYS=""
+COPY ./run.sh /scripts/run.sh
 
-RUN echo ${SSH_AUTHORIZED_KEYS} >> ~/.ssh/authorized_keys
+RUN chmod 777 /scripts/run.sh
 
 EXPOSE 80 443 3000 9000 3306 22
-CMD ["/usr/sbin/sshd", "-D"]
+
+CMD ["/scripts/run.sh"]
