@@ -4,7 +4,8 @@ MAINTAINER euclid1990
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     apt-utils \
     net-tools \
-    openssh-server
+    openssh-server \
+    vim
 
 RUN mkdir /var/run/sshd
 
