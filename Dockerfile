@@ -16,5 +16,9 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 RUN mkdir ~/.ssh/ && touch ~/.ssh/authorized_keys
 
+ENV SSH_AUTHORIZED_KEYS=""
+
+RUN echo ${SSH_AUTHORIZED_KEYS} >> ~/.ssh/authorized_keys
+
 EXPOSE 80 443 3000 9000 3306 22
 CMD ["/usr/sbin/sshd", "-D"]
