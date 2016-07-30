@@ -3,6 +3,7 @@ MAINTAINER euclid1990
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     apt-utils \
+    software-properties-common \
     net-tools \
     openssh-server \
     python-simplejson \
