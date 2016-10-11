@@ -9,7 +9,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     openssh-server \
     python-simplejson \
     zip \
-    vim
+    vim \
+    apache2 php5 libapache2-mod-php5 imagemick phpmyadmin 
 
 RUN mkdir /var/run/sshd && mkdir /root/.ssh/ && touch /root/.ssh/authorized_keys
 
