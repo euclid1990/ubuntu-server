@@ -1,6 +1,6 @@
 # Ubuntu Server
 
-- Ubuntu docker images with SSH access, Vim and Net tools
+- Ubuntu docker images with SSH access, Vim and Net tools and apache / php / phpmyadmin / imagemick und vielem mehr..
 
 ### Running container
 ```
@@ -14,4 +14,3 @@ docker run --name some-server \
 ssh root@{container_ip}
 ```
 
-### [Docker Hub page](https://hub.docker.com/r/euclid1990/ubuntu-server/)
