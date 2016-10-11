@@ -10,7 +10,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     python-simplejson \
     zip \
     vim \
-    apache2 php5 libapache2-mod-php5 imagemick phpmyadmin \
+    apache2 php5 libapache2-mod-php5 imagemagick phpmyadmin \
     nano cronolog
 
 RUN mkdir /var/run/sshd && mkdir /root/.ssh/ && touch /root/.ssh/authorized_keys
