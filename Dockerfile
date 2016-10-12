@@ -15,10 +15,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
 
  RUN add-apt-repository ppa:webupd8team/java
  RUN apt-get update
- RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | \
-  /usr/bin/debconf-set-selections
+ RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
+ RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
  RUN apt-get install wget oracle-java8-installer -y
- RUM apt-get install oracle-java8-set-default -y
+ RUN apt-get install oracle-java8-set-default -y
 
  RUN cd /opt &&  wget https://github.com/tananaev/traccar/releases/download/v3.5/traccar-linux-64-3.5.zip
  RUN unzip traccar-linux-64-3.5.zip
