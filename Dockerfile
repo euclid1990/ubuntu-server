@@ -8,10 +8,21 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     net-tools \
     openssh-server \
     python-simplejson \
-    zip oracle-java8-installer oracle-java8-set-default \
+    zip  \
     vim locate software-properties-common \
     apache2 php5 libapache2-mod-php5 imagemagick phpmyadmin \
     nano cronolog php5-curl
+
+ RUN add-apt-repository ppa:webupd8team/java
+ RUN apt-get update
+ RUN apt-get install wget oracle-java8-installer -y
+ RUM apt-get install oracle-java8-set-default -y
+
+ RUN cd /opt &&  wget https://github.com/tananaev/traccar/releases/download/v3.5/traccar-linux-64-3.5.zip
+ RUN unzip traccar-linux-64-3.5.zip
+ RUN chmod +x traccar.run
+ RUN ./traccar.run
+
 
 RUN mkdir /var/run/sshd && mkdir /root/.ssh/ && touch /root/.ssh/authorized_keys
 
