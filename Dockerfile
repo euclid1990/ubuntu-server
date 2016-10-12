@@ -18,6 +18,12 @@ RUN mkdir /var/run/sshd && mkdir /root/.ssh/ && touch /root/.ssh/authorized_keys
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
+# Configure user nobody to match unRAID's settings
+RUN usermod -u 99 nobody 
+RUN usermod -g 100 nobody 
+RUN usermod -d /home nobody 
+RUN chown -R nobody:users /home
+
 COPY ./docker-entrypoint.sh /scripts/docker-entrypoint.sh
 COPY ./run.sh /scripts/run.sh
 RUN chmod a+x /scripts/docker-entrypoint.sh && chmod a+x /scripts/run.sh
@@ -29,6 +35,9 @@ RUN echo "upload_max_filesize = 50M"  >> /etc/php5/apache2/php.ini
 RUN echo "max_execution_time = 300" >> /etc/php5/apache2/php.ini
 RUN echo "short_open_tag = ON" >> /etc/php5/apache2/php.ini
 
+VOLUME /var/www
+VOLUME /etc/letsencrypt
+VOLUME /home
 
 EXPOSE 80 443 3000 9000 3306 22
 
