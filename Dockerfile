@@ -24,6 +24,11 @@ RUN chmod a+x /scripts/docker-entrypoint.sh && chmod a+x /scripts/run.sh
 
 RUN echo "export AUTHORIZED_KEYS=" >> /etc/profile
 RUN echo "export ROOT_PASSWORD=" >> /etc/profile
+RUN echo "upload_tmp_dir = /var/www/tmp" >> /etc/php5/apache2/php.ini
+RUN echo "upload_max_filesize = 50M"  >> /etc/php5/apache2/php.ini
+RUN echo "max_execution_time = 300" >> /etc/php5/apache2/php.ini
+RUN echo "short_open_tag = ON" >> /etc/php5/apache2/php.ini
+
 
 EXPOSE 80 443 3000 9000 3306 22
 
