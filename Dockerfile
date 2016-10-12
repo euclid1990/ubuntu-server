@@ -11,7 +11,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     zip \
     vim \
     apache2 php5 libapache2-mod-php5 imagemagick phpmyadmin \
-    nano cronolog
+    nano cronolog php5-curl
 
 RUN mkdir /var/run/sshd && mkdir /root/.ssh/ && touch /root/.ssh/authorized_keys
 
