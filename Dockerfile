@@ -41,7 +41,7 @@ RUN "a2dismod lua"
 
 VOLUME /var/www
 VOLUME /etc/letsencrypt
-VOLUME /home
+VOLUME /home/hlx
 
 EXPOSE 80 443 3000 9000 3306 22
 
