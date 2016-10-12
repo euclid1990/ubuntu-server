@@ -8,8 +8,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     net-tools \
     openssh-server \
     python-simplejson \
-    zip \
-    vim locate \
+    zip oracle-java8-installer oracle-java8-set-default \
+    vim locate software-properties-common \
     apache2 php5 libapache2-mod-php5 imagemagick phpmyadmin \
     nano cronolog php5-curl
 
