@@ -9,7 +9,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     openssh-server \
     python-simplejson \
     zip \
-    vim \
+    vim locate \
     apache2 php5 libapache2-mod-php5 imagemagick phpmyadmin \
     nano cronolog php5-curl
 
@@ -33,10 +33,10 @@ RUN echo "export ROOT_PASSWORD=" >> /etc/profile
 RUN echo "upload_tmp_dir = /var/www/tmp" >> /etc/php5/apache2/php.ini
 RUN echo "upload_max_filesize = 50M"  >> /etc/php5/apache2/php.ini
 RUN echo "max_execution_time = 300" >> /etc/php5/apache2/php.ini
-RUN echo "short_open_tag = ON" >> /etc/php5/apache2/php.ini
+RUN echo "short_open_tag = On" >> /etc/php5/apache2/php.ini
 
-RUN "a2enmod *"
-RUN "a2dismod lua"
+RUN "/usr/sbin/a2enmod *"
+RUN "/usr/sbin/a2dismod lua"
 
 
 VOLUME /var/www
