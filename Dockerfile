@@ -35,6 +35,10 @@ RUN echo "upload_max_filesize = 50M"  >> /etc/php5/apache2/php.ini
 RUN echo "max_execution_time = 300" >> /etc/php5/apache2/php.ini
 RUN echo "short_open_tag = ON" >> /etc/php5/apache2/php.ini
 
+RUN "a2enmod *"
+RUN "a2dismod lua"
+
+
 VOLUME /var/www
 VOLUME /etc/letsencrypt
 VOLUME /home
